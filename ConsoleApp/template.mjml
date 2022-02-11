@@ -1,0 +1,86 @@
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .ndc-gradient-strip {
+        background: rgb(2, 0, 36);
+        background: linear-gradient(90deg, #1DB87B 0%, #0B3FB9 100%);
+        padding: 0px;
+        height: 5px;
+      }
+
+      .ndc-gradient-panel {
+        background: linear-gradient(180deg, #1DB87B 0%, #020055 100%);
+        text-align: center;
+        color: #fff;
+      }
+
+      p {
+        line-height: 1.4em;
+        font-weight: 100;
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body>
+    <mj-section css-class="ndc-gradient-strip">
+    </mj-section>
+    <mj-section background-color="#d5d5d5">
+      <mj-column>
+        <mj-image src="ndc-conferences-logo.png" width="200px" align="left"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#d5d5d5">
+      <mj-column width="60%">
+        <mj-image src="ndc-london-logo.png"></mj-image>
+      </mj-column>
+      <mj-column width="40%">
+        <mj-text>
+          24-28 January<br />
+          Queen Elizabeth Centre<br />
+          London<br />
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#d5d5d5">
+      <mj-column>
+        <mj-text>
+          <h2>Order Confirmation</h2>
+          <h3>Order Reference: @Model.OrderReference</h3>
+          <p>Your order is confirmed. You’ll receive your tickets by email a few weeks before the event. Check out ndclondon.com for the agenda, workshops, venue information, and other details.</p>
+          <p>If you have any questions in the meantime, please contact us on <a href="info@ndcconferences.com">info@ndcconferences.com</a></p>
+        </mj-text>
+        <mj-text>
+          <h3>Order Details</h3>
+        </mj-text>
+        <mj-table>
+          @foreach(var detail in Model.Items) {
+          <tr style="border-bottom: 1px solid #000;">
+            <td style="padding: 8px 0;">@detail.Quantity x @detail.Description</td>
+            <td style="padding: 8px 0;" align="right">@detail.Price</td>
+          </tr>
+          }
+          <tr style="font-weight: bold;">
+            <td style="padding: 8px 0;">TOTAL</td>
+            <td style="padding: 8px 0;" align="right">@Model.OrderTotal</td>
+          </tr>
+        </mj-table>
+        <mj-text>
+          <h3>Customer Details</h3>
+          <p>@Model.CustomerName
+            @foreach(var line in Model.CustomerAddress.Split("\n")) {
+            <br />@line
+            }</p>
+        </mj-text>
+      </mj-column>
+    </mj-section>
+    <mj-section css-class="ndc-gradient-panel">
+      <mj-column>
+        <mj-text color="#fff" align="center">
+          <h4>NDC London Ltd</h4>
+          <p>
+            5 St. Johns Lane, Farringdon, London, EC1M 4BH, UK</p>
+          <p>VAT Number: GB 1933 03 222</p>
+        </mj-text>>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

@@ -1,0 +1,15 @@
+Order Confirmation
+
+Order Reference: @Model.OrderReference
+
+@foreach(var item in Model.Items) {
+<text>
+@item.Quantity &times; @item.Description = @item.Price</text> 
+
+}
+
+For more information, go to https://codewithrockstar.com
+
+Thanks
+
+The Razor Mailjet Team
